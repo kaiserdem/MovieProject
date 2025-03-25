@@ -8,7 +8,7 @@ struct CategoriesView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 20) {
                     // Топ фільмів
-                    CategorySection(title: "Популярні фільми") {
+                    CategorySection(title: "Popular movies") {
                                             ScrollView(.horizontal, showsIndicators: false) {
                                                 HStack(spacing: 15) {
                                                     ForEach(viewModel.movies, id: \.title) { movie in
@@ -22,7 +22,7 @@ struct CategoriesView: View {
                                         }
                     
                     // Топ серіалів
-                    CategorySection(title: "Популярні серіали") {
+                    CategorySection(title: "Popular TV series") {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 15) {
                                 ForEach(viewModel.tvShows, id: \.name) { show in
@@ -36,7 +36,7 @@ struct CategoriesView: View {
                     }
                     
                     // Популярні персони
-                    CategorySection(title: "Популярні персони") {
+                    CategorySection(title: "Popular people") {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 15) {
                                 ForEach(viewModel.persons, id: \.id) { person in
@@ -52,7 +52,7 @@ struct CategoriesView: View {
                 .padding(.vertical)
             }
             .customBackground()
-            .navigationTitle("Категорії")
+            .navigationTitle("Categories")
             .foregroundColor(.white)  // Для маленького заголовка
             .navigationBarTitleTextColor(.white)
         }

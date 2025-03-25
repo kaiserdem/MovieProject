@@ -1,9 +1,4 @@
-//
-//  MovieProjectApp.swift
-//  MovieProject
-//
-//  Created by Yaroslav Golinskiy on 24/03/2025.
-//
+
 
 import SwiftUI
 

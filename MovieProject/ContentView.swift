@@ -15,11 +15,11 @@ struct ContentView: View {
                     Text("Жанри")
                 }
             
-//            SearchView()
-//                .tabItem {
-//                    Image(systemName: "magnifyingglass")
-//                    Text("Пошук")
-//                }
+            SearchView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Пошук")
+                }
         }
         .onAppear {
             let appearance = UITabBarAppearance()
