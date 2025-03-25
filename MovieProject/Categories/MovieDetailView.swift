@@ -8,7 +8,6 @@ struct MovieDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                // Секція з постером
                 ZStack(alignment: .topLeading) {
                     if let posterPath = movie.posterPath {
                         AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(posterPath)")) { image in
@@ -24,7 +23,6 @@ struct MovieDetailView: View {
                         .clipped()
                     }
                     
-                    // Градієнт зверху для кращої видимості кнопки назад
                     LinearGradient(
                         gradient: Gradient(colors: [Color.black.opacity(0.7), Color.clear]),
                         startPoint: .top,
@@ -39,7 +37,7 @@ struct MovieDetailView: View {
                         HStack(spacing: 4) {
                             Image(systemName: "chevron.left")
                                 .font(.system(size: 16, weight: .semibold))
-                            Text("Назад")
+                            Text("Back")
                                 .font(.system(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.white)

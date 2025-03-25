@@ -28,7 +28,7 @@ class MoviesViewModel: ObservableObject {
                         self?.movies.append(contentsOf: movieResponse.results)
                     }
                 } catch {
-                    print("___ PopularMovies Decoding error: \(error.localizedDescription), \(page), \(url)")
+                    print("PopularMovies Decoding error: \(error.localizedDescription), \(page), \(url)")
                 }
             }
             task.resume()
@@ -58,7 +58,7 @@ class MoviesViewModel: ObservableObject {
                             }
                         }
                     } catch {
-                        print("___ TVShows, Decoding error: \(error.localizedDescription), \(page), \(url)")
+                        print("TVShows, Decoding error: \(error.localizedDescription), \(page), \(url)")
                     }
                 }
                 task.resume()
@@ -95,11 +95,11 @@ class MoviesViewModel: ObservableObject {
             }
             
             // Друкуємо отриманий JSON
-            if let jsonString = String(data: data, encoding: .utf8) {
-                print("=== Person API Response for page \(page) ===")
-                print(jsonString)
-                print("=======================================")
-            }
+//            if let jsonString = String(data: data, encoding: .utf8) {
+//                print("=== Person API Response for page \(page) ===")
+//                print(jsonString)
+//                print("=======================================")
+//            }
             
             do {
                 let movieResponse = try JSONDecoder().decode(PersonListThemoviedb.self, from: data)
@@ -110,7 +110,7 @@ class MoviesViewModel: ObservableObject {
                     completion?(true)
                 }
             } catch {
-                print("___ Person Decoding error: \(error.localizedDescription), \(page), \(url)")
+                print("Person Decoding error: \(error.localizedDescription), \(page), \(url)")
                 completion?(false)
             }
         }

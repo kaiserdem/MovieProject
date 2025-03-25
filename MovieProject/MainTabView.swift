@@ -1,24 +1,24 @@
 import SwiftUI
 
-struct ContentView: View {
+struct MainTabView: View {
     var body: some View {
         TabView {
             CategoriesView()
                 .tabItem {
                     Image(systemName: "film.stack")
-                    Text("Категорії")
+                    Text("Categories")
                 }
             
             GanresView()
                 .tabItem {
                     Image(systemName: "list.bullet.rectangle")
-                    Text("Жанри")
+                    Text("Ganres")
                 }
             
             SearchView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
-                    Text("Пошук")
+                    Text("Search")
                 }
         }
         .onAppear {

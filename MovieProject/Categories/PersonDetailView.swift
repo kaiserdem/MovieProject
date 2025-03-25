@@ -33,14 +33,13 @@ struct PersonDetailView: View {
                     )
                     .frame(height: 100)
                     
-                    // Кнопка назад
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         HStack(spacing: 4) {
                             Image(systemName: "chevron.left")
                                 .font(.system(size: 16, weight: .semibold))
-                            Text("Назад")
+                            Text("Back")
                                 .font(.system(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.white)

@@ -25,7 +25,7 @@ struct GanresView: View {
                     .padding()
                 }
                 .customBackground()
-                .navigationTitle("Жанри")
+                .navigationTitle("Ganres")
                 .foregroundColor(.white)  // Для маленького заголовка
                 .navigationBarTitleTextColor(.white)
                 .onAppear {

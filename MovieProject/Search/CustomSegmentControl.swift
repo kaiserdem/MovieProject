@@ -25,8 +25,9 @@ struct CustomSegmentControl: View {
                                 if selectedType == type {
                                     LinearGradient(
                                         gradient: Gradient(colors: [
-                                            Color(red: 0.4, green: 0.2, blue: 0.9),
-                                            Color(red: 0.9, green: 0.3, blue: 0.5)
+                                            Color(red: 0.9, green: 0.3, blue: 0.5),
+                                            Color(red: 0.4, green: 0.2, blue: 0.9)
+                                            
                                         ]),
                                         startPoint: .leading,
                                         endPoint: .trailing

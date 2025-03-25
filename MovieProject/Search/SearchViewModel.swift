@@ -50,6 +50,7 @@ class SearchViewModel: ObservableObject {
                     return
                 }
                 
+                
                 do {
                     let decoder = JSONDecoder()
                     let searchResult = try decoder.decode(SearchResult.self, from: data)

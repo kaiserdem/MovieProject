@@ -23,7 +23,6 @@ struct TVShowDetailView: View {
                         .clipped()
                     }
                     
-                    // Градієнт зверху для кращої видимості кнопки назад
                     LinearGradient(
                         gradient: Gradient(colors: [Color.black.opacity(0.7), Color.clear]),
                         startPoint: .top,
@@ -31,14 +30,13 @@ struct TVShowDetailView: View {
                     )
                     .frame(height: 100)
                     
-                    // Кастомна кнопка назад
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         HStack(spacing: 4) {
                             Image(systemName: "chevron.left")
                                 .font(.system(size: 16, weight: .semibold))
-                            Text("Назад")
+                            Text("Back")
                                 .font(.system(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.white)
