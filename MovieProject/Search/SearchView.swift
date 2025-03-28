@@ -47,7 +47,7 @@ struct SearchView: View {
         .customNavigationBar()
     }
 }
-    
+
 struct SearchResultRow: View {
     let movie: MovieOmdbapi
     
@@ -58,7 +58,6 @@ struct SearchResultRow: View {
     var body: some View {
         NavigationLink(destination: MovieDetailSearchView(imdbID: movie.imdbID)) {
             HStack(spacing: 12) {
-                // Постер
                 if let posterUrl = URL(string: movie.poster ?? "") {
                     CachedAsyncImage(url: posterUrl)
                         .frame(width: 80, height: 120)

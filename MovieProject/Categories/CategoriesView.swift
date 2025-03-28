@@ -65,23 +65,15 @@ struct CategoriesView: View {
     }
 }
 
-// Додамо новий компонент для TV Shows
-struct TVShowCard: View {
-    let show: TVThemoviedb
+struct MovieCard: View {
+    let movie: MovieThemoviedb
     
     var body: some View {
         VStack(alignment: .leading) {
-            if let posterPath = show.posterPath {
-                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                } placeholder: {
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.3))
-                }
-                .frame(width: 150, height: 225)
-                .cornerRadius(10)
+            if let posterPath = movie.posterPath {
+                CachedAsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)"))
+                    .frame(width: 150, height: 225)
+                    .cornerRadius(10)
             } else {
                 Rectangle()
                     .fill(Color.gray.opacity(0.3))
@@ -89,7 +81,7 @@ struct TVShowCard: View {
                     .cornerRadius(10)
             }
             
-            Text(show.name ?? "")
+            Text(movie.title)
                 .font(.caption)
                 .lineLimit(2)
                 .foregroundColor(.white)
@@ -105,16 +97,9 @@ struct PersonCard: View {
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
             if let profilePath = person.profilePath {
-                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(profilePath)")) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                } placeholder: {
-                    Circle()
-                        .fill(Color.gray.opacity(0.3))
-                }
-                .frame(width: 120, height: 120)
-                .clipShape(Circle())
+                CachedAsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(profilePath)"))
+                    .frame(width: 120, height: 120)
+                    .clipShape(Circle())
             } else {
                 Circle()
                     .fill(Color.gray.opacity(0.3))
@@ -137,22 +122,15 @@ struct PersonCard: View {
     }
 }
 
-struct MovieCard: View {
-    let movie: MovieThemoviedb
+struct TVShowCard: View {
+    let show: TVThemoviedb
     
     var body: some View {
         VStack(alignment: .leading) {
-            if let posterPath = movie.posterPath {
-                AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                } placeholder: {
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.3))
-                }
-                .frame(width: 150, height: 225)
-                .cornerRadius(10)
+            if let posterPath = show.posterPath {
+                CachedAsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)"))
+                    .frame(width: 150, height: 225)
+                    .cornerRadius(10)
             } else {
                 Rectangle()
                     .fill(Color.gray.opacity(0.3))
@@ -160,10 +138,10 @@ struct MovieCard: View {
                     .cornerRadius(10)
             }
             
-            Text(movie.title)
+            Text(show.name ?? "")
                 .font(.caption)
                 .lineLimit(2)
-                .foregroundColor(.white) // Змінюємо колір тексту для NavigationLink
+                .foregroundColor(.white)
                 .multilineTextAlignment(.leading)
                 .frame(width: 150)
         }

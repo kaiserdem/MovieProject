@@ -1,6 +1,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct CachedAsyncImage: View {
     let url: URL?
     
@@ -29,16 +31,26 @@ struct CachedAsyncImage: View {
         
         // Перевіряємо кеш
         if let cachedImage = ImageCache.shared.get(for: urlString) {
+            print("Loaded image from cache: \(urlString)")
             self.image = cachedImage
             return
         }
         
         // Завантажуємо якщо немає в кеші
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, let downloadedImage = UIImage(data: data) else { return }
+            if let error = error {
+                print("Error loading image: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data, let downloadedImage = UIImage(data: data) else {
+                print("Failed to load image data")
+                return
+            }
             
             // Зберігаємо в кеш
             ImageCache.shared.set(downloadedImage, for: urlString)
+            print("Downloaded and cached image: \(urlString)")
             
             DispatchQueue.main.async {
                 self.image = downloadedImage
